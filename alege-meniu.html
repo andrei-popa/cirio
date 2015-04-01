@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Arena Bucatarasilor Selgros</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main-style.css">
+        <link rel="stylesheet" href="css/jquery.bxslider.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,300italic,400italic,600italic,600,700italic%7cOpen+Sans+Condensed:300,700,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<script src="js/vendor/jquery-1.10.1.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/jquery.bxslider.js"></script>
+    </head>
+    <body>
+		<div id="content">
+        	<div class="btn-distribuie"><a href="#"><img src="img/btn-distribuie.png" alt="" /></a></div>
+		<div class="link-header"></div>
+		<div class="content-inner">
+			<div class="app-menu">
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">MENIURI ALESE</a></li>
+					<li class="act"><a href="#">ALEGE MENIUL</a></li>
+					<li><a href="#">PAGINA MEA</a></li>
+					<li><a href="#">REGULAMENT</a></li>
+				</ul>
+			</div>
+			<div class="banner-carne">
+				<img src="img/banner-carne.png" alt="" />
+			</div>
+			<div class="desp-20"></div>
+			<div class="menu-selector padded">
+				<div class="cas-title clearfix red">
+					<h3 class="fl za-title">Alege Meniul</h3>
+				</div>
+				<div>
+				<div class="choser" id="aperitiv">
+					<p>Alege Aperitivul</p>
+					<div class="items">
+						<a href="#">Bruschete cu Somon</a>
+						<a href="#">Cascaval pane cu marar</a>
+						<a href="#">Salata ratatouille</a>
+					</div>	
+				</div>
+				<div class="choser" id="ciorba">
+					<p>Alege Ciorba</p>
+					<div class="items">
+						<a href="#">Ciorba de Vacuta</a>
+						<a href="#">Ciorba de Salata</a>
+						<a href="#">Ciorba de Fasole cu afumatura</a>
+					</div>	
+				</div>
+				<div class="choser" id="fel">
+					<p>Alege Felul Principal</p>
+					<div class="items">
+						<a href="#">Paste Carbonara</a>
+						<a href="#">Sarmalute in foi de vita cu smantana</a>
+						<a href="#">Porchetta cu dovlecei</a>
+					</div>	
+				</div>
+				</div>
+				<form action="#">
+					<input type="hidden" name="aperitiv" value="" />
+					<input type="hidden" name="ciorba" value="" />
+					<input type="hidden" name="fel" value="" />
+					<input type="hidden" name="user_id" />
+					<div class="menu-submit">
+					<input type="image" src="img/menu-submit.png" alt="" />
+					</div>
+				</form>
+			</div>
+			<script type="text/javascript">
+				$('.menu-submit input').prop("disabled",true);
+				$('.items a').click(function(){
+					curItem = $(this).parent();
+					upitem = curItem.parent();
+					upitem.find('p').html($(this).text());
+					upitem.find('p').css('color','#1a7dc5');
+					upid = upitem.attr('id');
+					console.log(upid);
+					$( "input[name="+upid+"]" ).val($(this).text());
+					curItem.addClass('hidden');
+					var validate = false;
+					if($('.menu-selector input[name="aperitiv"]').val() != "" && $('.menu-selector input[name="ciorba"]').val() != "" && $('.menu-selector input[name="fel"]').val() != "") {
+						console.log('Go go go!');
+						$('.menu-submit').css("opacity","1");
+						$('.menu-submit input').prop("disabled",false);
+					}
+				});
+				$('.choser').mouseover(function(){
+					hidItem = $(this).find('.items');
+					hidItem.removeClass('hidden');
+				});
+			</script>
+			<div class="premii padded">
+				<div class="saptamanale">
+					<h3 class="red za-title">Marele premiu</h3>
+					<h2>O oală CrockPot</h2>
+					<p>Se acorda, prin tragere la sorti, pentru meniurile cu minimum 10 voturi</p>
+					<img src="img/wok.png" alt="" />
+				</div>
+				<div class="desp-40"></div>
+				<div class="marele">
+					<h3 class="red za-title">5 premii săptămănale</h3>
+					<h2>Gama de<br />produse Cirio</h2>
+					<img src="img/oala.png" alt="" />
+				</div>
+			</div>
+			<div class="desp-20"></div>
+			<div class="regulament"><a href="#">VEZI REGULAMENTUL CONCURSULUI</a></div>
+		</div>
+		</div>
+        <script src="js/main.js"></script>
+    </body>
+</html>
